@@ -1,24 +1,50 @@
-import logo from './logo.svg';
+//Components
+import Headers from "./MyComponents/Headers";
+import {Todos} from "./MyComponents/Todos";
+import {Footer} from "./MyComponents/Footer";
+
+//CSS
 import './App.css';
 
+//hooks
+import React, { useState } from 'react';
+
+
+// if (True) {
+//   user.imageSize= 90,
+// }
+// else{
+//   user.imageSize= 180
+// }
+
 function App() {
+  const onDelete=(todo)=>{
+    console.log(todo," DELETED IN 3 2 ... 1 !!!!")
+    setTodo(todos.filter((e)=>{
+      return e!==todo
+    }))
+  }
+  const [todos, setTodo] = useState([
+    {
+      sno:1,
+      tittle:"Go to the market and get fish",
+      desc:"My mother has asked me to get salmon from market"
+    },{
+      sno:2,
+      tittle:"Go to the market and get milk",
+      desc:"My mother has asked me to get goat milk from market"
+    },{
+      sno:3,
+      tittle:"Go to the market and get ice cream",
+      desc:"My mother has asked me to get amul ice cream from market"
+    },
+  ])
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Headers tittle="Hi Mummy!!"/>
+      <Todos todo={todos} onDelete={onDelete}/>
+      <Footer/>
+    </>
   );
 }
 
