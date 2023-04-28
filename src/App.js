@@ -1,6 +1,7 @@
 //Components
 import Headers from "./MyComponents/Headers";
 import {Todos} from "./MyComponents/Todos";
+import {AddTodo} from "./MyComponents/AddTodo";
 import {Footer} from "./MyComponents/Footer";
 
 //CSS
@@ -19,10 +20,22 @@ import React, { useState } from 'react';
 
 function App() {
   const onDelete=(todo)=>{
-    console.log(todo," DELETED IN 3 2 ... 1 !!!!")
     setTodo(todos.filter((e)=>{
       return e!==todo
     }))
+  }
+  const addTodo=(tittle,desc)=>{
+    let sno=1
+    if(todos.length!==0){
+    sno=todos[todos.length-1].sno+1;
+    }
+    const myTodo={
+      sno:sno,
+      tittle:tittle,
+      desc:desc
+    }
+    setTodo([...todos,myTodo])
+    console.log(myTodo)
   }
   const [todos, setTodo] = useState([
     {
@@ -42,6 +55,7 @@ function App() {
   return (
     <>
       <Headers tittle="Hi Mummy!!"/>
+      <AddTodo AddTodo={addTodo}></AddTodo>
       <Todos todo={todos} onDelete={onDelete}/>
       <Footer/>
     </>
