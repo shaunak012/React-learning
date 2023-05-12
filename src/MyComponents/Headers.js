@@ -14,9 +14,9 @@ export default function Headers(props) {
               <a className="nav-link active" aria-current="page" href="/">Home</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/">About</a>
+              <a className="nav-link" href="/about">About</a>
             </li>
-            
+
           </ul>
           {props.searchBar ? <form className="d-flex" role="search">
             <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
@@ -24,14 +24,14 @@ export default function Headers(props) {
           </form> : "jadoo"}
         </div>
       </div>
-      </nav>
+    </nav>
   )
 }
-Headers.defaultProps={
-    tittle:"NO Tittle",
-    searchBar:true
+Headers.defaultProps = {
+  tittle: "NO Tittle",
+  searchBar: true
 }
-Headers.propTypes={
-    tittle:PropTypes.string,    
-    searchBar:PropTypes.bool.isRequired
+Headers.propTypes = {
+  tittle: PropTypes.string,
+  searchBar: PropTypes.bool.isRequired
 }

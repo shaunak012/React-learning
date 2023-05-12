@@ -2,8 +2,6 @@ import React from 'react'
 
 export const Footer = () => {
   let StyleFooter={
-    position: "relative",
-    top: "100vh",
     width: "100vw"
   }
   return (

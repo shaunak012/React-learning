@@ -11,7 +11,9 @@ export const AddTodo = (props) => {
         }else if(!desc){
             alert("description cannot be left empty")
         }else{
-        props.AddTodo(tittle , desc)
+        props.AddTodo(tittle , desc);
+        setTittle("");
+        setDesc("");
         }
     }
     return (
